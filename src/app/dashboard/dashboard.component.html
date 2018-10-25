@@ -1,0 +1,21 @@
+
+<div> 
+  <input type="text" #first>
+</div>
+<div>
+  <input type="text" #last>  
+</div>
+  <button (click)="searchName(first.value, last.value)">SEARCH FULLNAME</button>
+
+  <!--<button [disabled]="nameExists" (click)="addName(first.value,last.value)">ADD NAME</button>-->
+
+<div [ngSwitch]="nameExists">
+  <div *ngSwitchCase="true">
+    <div>{{first.value}} {{last.value}} is a valid name.</div>
+  </div>
+  <div *ngSwitchCase="false">
+    <div>{{first.value}} {{last.value}} is not a valid name.
+        <button (click)="addName(first.value,last.value)">ADD NAME</button>
+    </div>
+  </div>
+ </div>       
